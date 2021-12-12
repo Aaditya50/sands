@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block title%}home-{{use.user}}{% endblock %}
+  {% block body %}
+
+
+  <style>
+    body{
+    background: white;
+  }
+  </style>
+  
+  <style>
+  
+    * {
+     
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .column {
+      margin-left: 15%;
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+    }
+    
+    .row {margin:.25rem .5rem 1rem 10rem;}
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 16px;
+      text-align: center;
+      background-color: #f1f1f1;
+      margin: .2rem .1rem .2rem 1rem;
+     }
+    .button {
+      width: 100%;background:#38fa31 ;border: 2px solid #4caf50;color: black;padding: 5px;font-size: 18px;cursor: pointer;margin: 12px 0;
+    }
+    </style>
+
+
+<h1 style="font-size: 60px; margin-bottom: 50px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;" >Welcome to SandSpot {{user.username}}</h1>
+{% if user.is_authenticated%}
+<h1 style="font-size: 20px; margin-bottom: 50px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;" >Welcome ,{{user.username}}</h1>
+{% else %}
+<a href="{% url 'register' %}">Register</a> <br>
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+
+<div class="row">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeXIScHAual-8Ecqruuz6epqCVBrbIeHRvg&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 1</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+    </div>
+
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmqnDEQ2sRJeoer05aT-9Ti0wA4i4hkP8FOA&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 2</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+    </div>
+
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8HJ5nhQdEx7xTlymwF8FyLI1YK9KZylKMoQ&usqp=CAU"  alt="Denim Jeans" style="width:100%"/>
+      <h1>Truck 3</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+    </div>
+  
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAzPvi9yS4zFWHGgzpedQQZUw1yUQSmgF2ow&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 4</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+   </div>
+</div>
+<div class="row">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsZ4zmdpwwcVlWrUa1w5vFRfhOu7xdEGjFZw&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 5</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+    </div>
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcgYkdMJWfcuqq9D676n_N42HBegnoHG9277d-0CkE_K1BLZnzjy81yrKJQx5K-W-HOIw&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 6</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+  </div>
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH1fVbOK35bkqJDEyfeYQf3Q471o3d6nLCuG2u57gtpBO5_GNPgPKcdzhGDo2uyG5eWcY&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 7</h1>
+      <p class="price">₹600</p>
+      <p><button class="button" >Add to Cart</button></p>
+  </div>
+  
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNb2SfrHOd_GnYX2AxhXz_iEjEJ8Z1ALxMO-kzJ4XFOpTH-gtvpmaeIyPejFeu2Oy2TFk&usqp=CAU" alt="Denim Jeans" style="width:100%">
+      <h1>Truck 8</h1>
+      <p class="price">₹600</p>
+      <p><button class="button">Add to Cart</button></p>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+// Find out the cart items from localStorage
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+}
+// If the add to cart button is clicked, add/increment the item
+//$('.cart').click(function() {
+$('.divpr').on('click', 'button.cart', function() {
+    var idstr = this.id.toString();
+    if (cart[idstr] != undefined) {
+        qty = cart[idstr][0] + 1;
+
+    } else {
+        qty = 1;
+        name = document.getElementById('name'+idstr).innerHTML
+        cart[idstr] = [qty, name];
+
+    }
+    updateCart(cart);
+});
+//Add Popover to cart
+$('#popcart').popover();
+updatePopover(cart);
+
+function updatePopover(cart) {
+    console.log('We are inside updatePopover');
+    var popStr = "";
+    popStr = popStr + "<h5> Cart for your items in my shopping cart </h5><div class='mx-2 my-2'>";
+    var i = 1;
+    for (var item in cart) {
+        popStr = popStr + "<b>" + i + "</b>. ";
+        popStr = popStr + document.getElementById('name' + item).innerHTML.slice(0, 19) + "... Qty: " + cart[item][0] + '<br>';
+        i = i + 1;
+    }
+    popStr = popStr + "</div> <a href='/shop/checkout'><button class='btn btn-primary' id ='checkout'>Checkout</button></a> <button class='btn btn-primary' onclick='clearCart()' id ='clearCart'>Clear Cart</button>     "
+    console.log(popStr);
+    document.getElementById('popcart').setAttribute('data-content', popStr);
+    $('#popcart').popover('show');
+}
+
+function clearCart() {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    for (var item in cart) {
+        document.getElementById('div' + item).innerHTML = '<button id="' + item + '" class="btn btn-primary cart">Add To Cart</button>'
+    }
+    localStorage.clear();
+    cart = {};
+    updateCart(cart);
+}
+
+function updateCart(cart) {
+    var sum = 0;
+    for (var item in cart) {
+        sum = sum + cart[item][0];
+        document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'>-</button> <span id='val" + item + "''>" + cart[item][0] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = sum;
+    console.log(cart);
+    updatePopover(cart);
+}
+// If plus or minus button is clicked, change the cart as well as the display value
+$('.divpr').on("click", "button.minus", function() {
+    a = this.id.slice(7, );
+    cart['pr' + a][0] = cart['pr' + a][0] - 1;
+    cart['pr' + a][0] = Math.max(0, cart['pr' + a][0]);
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    updateCart(cart);
+});
+$('.divpr').on("click", "button.plus", function() {
+    a = this.id.slice(6, );
+    cart['pr' + a][0] = cart['pr' + a][0] + 1;
+    document.getElementById('valpr' + a).innerHTML = cart['pr' + a][0];
+    updateCart(cart);
+});
+</script>
+{% endblock %}

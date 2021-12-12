@@ -1,0 +1,129 @@
+
+{% extends 'base.html' %}
+
+{% block title%}home-{{use.user}}{% endblock %}
+{% block body %}
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<style>
+
+body{
+    background: white;
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+
+
+
+</style>
+
+
+{% if user.is_authenticated%}
+<div class="container emp-profile">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAzPvi9yS4zFWHGgzpedQQZUw1yUQSmgF2ow&usqp=CAU" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        <h2 style="font-size: 20px; margin-bottom: 50px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;" >Welcome ,{{user.first_name}}</h2>
+                                        {{user.username}}
+                                    </h5>
+                            
+                                    {{user.phone_number}}
+                                    {{user.location}}
+                                    <br>
+                                    {{user.first_name}}
+                                    {{user.last_name}}
+                                    <br>
+                               
+                          
+                               
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    </div>
+                </div>
+            </form>           
+        </div>
+        
+       
+        
+
+
+        {% else %}
+
+        <h1 style="font-size: 50px; margin-bottom: 50px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;">Sand Spot</h1>
+
+        <div style="width: 10%;background: #fafafa;border: 2px solid #4caf50;color: white; align-items: center;justify-content: center;  text-align:center ;margin:auto; border-radius: 25px; display: flex;justify-content: center;box-shadow: 0 5px 0 #1baae2; padding: 0.5em 1.5em; cursor: pointer; font-size: 18px;cursor: pointer;top: 5px;" >
+        <a type="button" class="btn btn-block" href="{% url 'register' %}">Register</a> <br>
+        </div>
+        <br>
+        <div style="width: 10%;background: #ffffff;border: 2px solid #4caf50;color: white   align-items: center;justify-content: center;  text-align:center ; margin: auto;  border-radius : 25px;display: flex;justify-content: center;box-shadow: 0 5px 0 #1baae2; padding: 0.5em 1.5em; cursor: pointer; font-size: 18px;cursor: pointer;" >
+        <a type="button" class="btn btn-block" href="{% url 'login' %}">Login</a>
+        </div>
+        <br>
+        {% endif %}
+        
+        
+ 
+{% endblock %}        

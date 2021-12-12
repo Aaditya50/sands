@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+<!--<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <title>Demo Registration</title>
+</head>
+<body>
+-->
+{% block title%}Demo Registration {% endblock %}
+  {% block body %}
+
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="card">
+                <div class="card-header text-black">
+                  <h2 style="font-size: 40px; margin-bottom: 10px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;">Register</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'customer_register' %}" method="POST" enctype="multipart/form-data" novalidate>
+                      {% csrf_token %}
+                         {% for field in form.visible_fields %}
+                           <div class="form-group">
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                    {% for error in field.errors %}
+                                      <span style="color:red">{{ error }}</span>
+                                    {% endfor %}
+                         {% endfor %}
+                             <input type="submit" value="Register" class="btn btn-block btn-primary"
+                             style="width: 100%;background:#38fa31 ;border: 2px solid #4caf50;color: black;padding: 5px;font-size: 18px;cursor: pointer;margin: 12px 0;">
+                           </div>
+                    </form>
+                 </div>
+                    </div>   
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+{% endblock %}

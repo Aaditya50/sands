@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title%} Login {% endblock %}
+  {% block body %}
+
+    <section>
+
+      <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div class="card card0 border-0">
+            <div class="row d-flex">
+                <div class="col-lg-6">
+                    <div class="card1 pb-5">
+                        <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://image.shutterstock.com/image-photo/large-orange-dump-truck-unloads-260nw-1649885266.jpg" class="image"> </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card2 card border-0 px-4 py-5">
+                      {% csrf_token %}
+                    <form action="{% url 'login' %}" method="POST" novalidate>
+                      {% csrf_token %}
+                         {% for field in form.visible_fields %}
+                           <div class="form-group">
+                            {% csrf_token %}
+                               {{ field.label_tag }}
+                                  {% render_field field class="form-control" %}
+                                  {% csrf_token %}
+                                    {% if messages%}
+                                      {% for message in messages %}
+                                        <span style="color:red">{{ message }}</span>
+                                      {% endfor %}
+                                     {% endif %}
+                         {% endfor %}
+                         <br>
+                         {% csrf_token %}
+                             <input type="submit" value="Login" class="btn btn-block btn-primary"
+                             style="width: 100%;background:#38fa31 ;border: 2px solid #4caf50;color: black;padding: 5px;font-size: 18px;cursor: pointer;margin: 12px 0;">
+                          
+                             {% csrf_token %}  </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

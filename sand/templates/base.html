@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
+  <meta name="author" content="Creative Tim">
+  <title>Sand Spot</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="stylesheet" href="{% static 'client/assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'client/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css'  %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'client/assets/css/argon.css' %}" type="text/css">
+
+
+  <style>
+   
+    body {
+      font-family: "Lato", sans-serif;
+      background-color: rgb(213, 224, 255);
+    }
+    
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: rgb(255, 255, 255);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #333333;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #077bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+    
+    .openbtn:hover {
+      background-color: #444;
+    }
+    
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {padding-top: 15px;}
+      .sidebar a {font-size: 18px;}
+    }
+    </style>
+</head>
+
+<body>
+  <!-- Sidenav -->
+  <div id="main">
+    
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+ 
+          <a href="{% url 'profile' %}">Profile</a>
+          <a href="{% url 'product' %}">Product</a>
+          <a href="{% url 'contact' %}">Contact Us</a>
+          <a href="{% url 'feedback' %}">Feedback</a>
+          
+          {% if user.is_authenticated%}
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+          <a class="active" href="{% url 'order' %}">Home</a>
+          <a href="{% url 'logout' %}">Logout</a>
+          {% else %}
+          <a class="active" href="{% url 'index' %}">Home</a>
+          {% endif %}
+       
+            
+          <a href="{% url 'about' %}">About</a>
+         
+          <!-- Navigation -->
+        
+        <!-- </div>
+      </div>
+    </div> -->
+  </nav>
+    </div>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+    </script>
+
+  <!-- Main content -->
+  <div class="main-content" id="panel">
+    <!-- Topnav -->
+    
+    <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <div class="container-fluid">
+        <button class="openbtn" onclick="openNav()">☰</button>  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
+                </div>
+                <input class="form-control" placeholder="Search" type="text">
+              </div>
+            </div>
+            
+            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </form>
+          
+          <!-- Navbar links -->
+          <ul class="navbar-nav align-items-center  ml-md-auto ">
+            
+            <li class="nav-item d-sm-none">
+              <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
+                <i class="ni ni-zoom-split-in"></i>
+              </a>
+            </li>
+            {% if user.is_authenticated%}
+        
+            <li style="float: right;"><a href="{% url 'logout' %}">Logout</a></li>
+            <button style="float:right" type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Vivamus
+            sagittis lacus vel augue laoreet rutrum faucibus.">
+  
+  
+            Cart(<span id="cart">0</span>)
+            </button>
+            {% endif %}
+         
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+    <!-- Header -->
+    <!-- Header -->
+   
+    
+   
+  </div>
+  <!-- Argon Scripts -->
+  <!-- Core -->
+  <script src="{% static 'client/assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'client/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'client/assets/vendor/js-cookie/js.cookie.js' %}"></script>
+  <script src="{% static 'client/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+  <script src="{% static 'client/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+  <!-- Optional JS -->
+  <script src="{% static 'client/assets/vendor/chart.js/dist/Chart.min.js' %}"></script>
+  <script src="{% static 'client/assets/vendor/chart.js/dist/Chart.extension.js' %}"></script>
+  <!-- Argon JS -->
+  <script src="{% static 'client/assets/js/argon.js' %}"></script>
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+  <body>
+
+      {% block body %} {% endblock %}
+  
+<br>
+<br><br><br>
+    <!-- Footer -->
+<footer class="page-footer font-small indigo">
+
+
+  
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+       
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+  <!-- Grid row-->
+  <hr class="rgba-white-light" style="margin: 0%;">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a href="#"> sandspot.in</a>
+  </div>
+  <!-- Copyright -->
+  
+    <!-- Footer Links -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">About us</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Products</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Awards</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Help</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Contact</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+
+</footer>
+<!-- Footer -->
+
+
+
+  </body>
+</html>

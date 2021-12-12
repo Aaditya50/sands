@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <title>Demo Registration</title>
+</head>
+<body>
+-->
+{% block title%}Register {% endblock %}
+  {% block body %}
+    <section>
+        <div class="w3-container w3-ewhite">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="card">
+                <div class="card-header text-black">
+                  <h2  style="font-size: 60px; margin-bottom: 50px;color:#4caf50; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;">Registration</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                       <div class="col-lg-6">
+                       <div style="width: 80%;background: #fafafa;border: 2px solid #4caf50;color: white ;  align-items: center; justify-content: center;  text-align:center ;margin:auto;  border-radius: 25px; display: flex;justify-content: center; box-shadow: 0 5px 0 #1baae2; padding: 0.5em 1.5em; cursor: pointer; font-size: 18px;cursor: pointer; top: 5px;" >
+                        <a type="button" class="btn btn-block" href="{% url 'customer_register' %}">I am a customer</a>
+                       </div>
+                       </div>
+                       <div class="col-lg-6">
+                        <div style="width: 80%;background: #fafafa;border: 2px solid #4caf50;color: white ;  align-items: center; justify-content: center;  text-align:center ;margin:auto;  border-radius: 25px; display: flex;justify-content: center;  box-shadow: 0 5px 0 #1baae2; padding: 0.5em 1.5em; cursor: pointer; font-size: 18px;cursor: pointer; top: 5px;" >
+                        <a type="button" class="btn btn-block" href="{% url 'employee_register' %}">I am Merchant</a>
+                       </div>
+                       </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock %}

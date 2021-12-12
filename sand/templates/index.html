@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+ 
+
+{% block body %}
+
+
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+    <br> <br>
+    <br>
+      <div class="row d-flex">
+          <div class="col-lg-6">
+              <div class="card1 pb-5">
+                  <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://media.istockphoto.com/photos/yellow-truck-with-raised-body-picture-id1081540220?k=20&m=1081540220&s=612x612&w=0&h=ZiNemNW4mKw-CYWAqLfXw_nuAiWPe8JChlYDpNG8Uws=" class="image"> </div>
+              </div>
+          </div>
+         <br> 
+  <div class="col-lg-6">
+  <div class="card2 card border-0 px-4 py-5">
+    <h1 style="font-size: 50px; color:#000000; text-decoration:underline; text-align:center ;text-shadow: 10px 10px 10px #1baae2; padding: 13px 0;">Sand Spot</h1>
+    <h5 style="text-align: center;" >A government Authorized Website</h5>
+
+<br>
+<br>
+<br>
+
+
+{% if user.is_authenticated%}
+
+<a type="button" class="btn btn-block " href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out";></span>Logout</a>
+
+</div>
+<br>
+<br>
+
+{% else %}
+<a type="button" class="btn btn-block" href="{% url 'register' %}">Register</a> <br>
+{% csrf_token %}
+<a type="button" class="btn btn-block" href="{% url 'login' %}">Login</a>
+<br>
+<h5 style="text-align: center;" >Only Legal Sand will be provided through our website</h5>
+<br>
+{% endif %}
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
